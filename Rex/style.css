@@ -144,6 +144,7 @@ img{
 }
 
 
+
 /*scrol to top*/
 
 .scrollToTop {
@@ -179,6 +180,7 @@ img{
 	float: left;
 	display: inline;
 	width: 100%;
+
 }
 .header-inner{
 	display: inline;
@@ -197,6 +199,7 @@ img{
 	top: 0;
 	width: 100%;
 	z-index: 10;
+
 }
 .header-content {
 	float: left;
@@ -206,14 +209,16 @@ img{
 	width: 100%;
 }
 .header-content h2 {
-	font-size: 80px;
+	font-size: 45px;
 	font-weight: bold;
 	text-transform: uppercase;
-	line-height: 80px;
+	line-height: 46px;
 }
+
 .header-content h2 span {
+    font-size: 52px;
 	font-weight: normal;
-	line-height: 93px;
+	line-height: 53px;
 }
 .header-btn-area{
 	margin-top: 90px;
