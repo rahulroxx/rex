@@ -87,7 +87,7 @@
             <li><a href="#pricing-table">PRICE </a></li>
             <li><a href="#from-blog">BLOG </a></li>
 -->
-            <li><a href="#contact">CONTACT</a></li>
+            <li><a href="index.html">CONTACT</a></li>
           </ul>
         </div><!--/.nav-collapse -->
        <div class="search-area">
