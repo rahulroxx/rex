@@ -102,14 +102,6 @@
   <!-- End menu section -->
 
 
-<!--<div class="body"></div>-->
-<!--<div class="grad"></div>-->
-<!--
-<div class="header">
-    <div>Prop<span>Shelf</span></div>
-</div>
-<br>
--->
 <div class="login">
    <br>
    <br>
@@ -118,17 +110,17 @@
     <br>
             <form class = "form-signin" role = "form"
             action = "validate-forum.php" method = "post">
-    <input type="text" placeholder="First Name" name="fname">
+    <input type="text" placeholder="First Name" name="fname"required>
     <br>
-     <input type="text" placeholder="Second Name" name="sname">
+     <input type="text" placeholder="Second Name" name="sname"required>
     <br>
-    <input type="text" placeholder="Company Name" name="cname">
+    <input type="text" placeholder="Company Name" name="cname"required>
     <br>
-    <input type="email" placeholder="Email" name="email">
+    <input type="email" placeholder="Email" name="email"required>
     <br>
-    <input type="password" placeholder="password" name="pass">
+    <input type="password" placeholder="password" name="pass"required>
     <br>
-    <input type="text" placeholder="Reason to Apply" name="reason">
+    <input type="text" placeholder="Reason to Apply" name="reason"required>
     <br><br>
     <div><span>We will get back to you later</span></div>
     <br>

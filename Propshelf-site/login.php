@@ -101,83 +101,90 @@
   </section>
   <!-- End menu section -->
 
-<!--
-<div class="body"></div>
-<div class="grad"></div>
--->
-<!--
-<div class="header">
-    <div>Prop<span>Shelf</span></div>
-</div>
--->
+
+
 <br>
 <div class="login">
-         <form class = "form-signin" role = "form"
+         <form role = "form"
             action = "validate_login.php" method = "post">
             <h4 class = "form-signin-heading"><?php echo $msg; ?></h4>
-            <input type = "text" class = "form-control"
-               name = "users_email"  id="users_email" placeholder = "username = tutorialspoint"
-               required autofocus></br>
-            <input type = "password" class = "form-control"
-               name = "users_pass" id="users_pass" placeholder = "password = 1234" required>
-            <button class = "btn btn-lg btn-primary btn-block" type = "submit"
+            <div><span>ADMIN</span></div>
+            <input type = "text"
+               name = "users_email"  id="users_email" placeholder = "username"
+               required autofocus><br>
+            <input type = "password"
+               name = "users_pass" id="users_pass" placeholder = "password" required>
+               <br><br>
+            <span>Caution : For Admin Only</span><br>
+            <button  type = "submit"
                name = "login">Login</button>
+                <br>
+            <span>Forgot Your Password? <a href="#">click here</a></span>
          </form>
 </div>
 
   <div class="login">
-         <form class = "form-signin" role = "form"
+         <form role = "form"
             action = "validate_login.php" method = "post">
             <h4 class = "form-signin-heading"><?php echo $msg; ?></h4>
-            <input type = "text" class = "form-control"
-               name = "users_email"  id="users_email" placeholder = "username = tutorialspoint"
-               required autofocus></br>
-            <input type = "password" class = "form-control"
-               name = "users_pass" id="users_pass" placeholder = "password = 1234" required>
-            <button class = "btn btn-lg btn-primary btn-block" type = "submit"
+            <div><span>User1</span></div>
+            <input type = "text"
+               name = "users_email"  id="users_email" placeholder = "username"
+               required autofocus><br>
+            <input type = "password"
+               name = "users_pass" id="users_pass" placeholder = "password" required>
+               <br>
+               <select>
+        <option value="Government">Government</option>
+        <option value="Match Making">Match Making</option>
+    </select>
+    <br>
+            <button type = "submit"
                name = "login">Login</button>
+                <br>
+                <span>Forgot Your Password? <a href="#">click here</a></span>
          </form>
 </div>
 
    <div class="login">
-         <form class = "form-signin" role = "form"
+         <form role = "form"
             action = "validate_login.php" method = "post">
             <h4 class = "form-signin-heading"><?php echo $msg; ?></h4>
-            <input type = "text" class = "form-control"
-               name = "users_email"  id="users_email" placeholder = "username = tutorialspoint"
-               required autofocus></br>
-            <input type = "password" class = "form-control"
-               name = "users_pass" id="users_pass" placeholder = "password = 1234" required>
-            <button class = "btn btn-lg btn-primary btn-block" type = "submit"
+            <div><span>User2</span></div>
+            <input type = "text"
+               name = "users_email"  id="users_email" placeholder = "username"
+               required autofocus><br>
+            <input type = "password"
+               name = "users_pass" id="users_pass" placeholder = "password" required>
+               <br>
+    <input type="checkbox" value="Goverment"><span>:Government</span>
+    <input type="checkbox" value="Match Making"><span>:Match-Making</span>
+    <br>
+            <button type = "submit"
                name = "login">Login</button>
+                <br>
+    <span>Forgot Your Password? <a href="#">click here</a></span>
          </form>
 </div>
 
    <div class="login">
-         <form class = "form-signin" role = "form"
+         <form role = "form"
             action = "validate_login.php" method = "post">
             <h4 class = "form-signin-heading"><?php echo $msg; ?></h4>
-            <input type = "text" class = "form-control"
-               name = "users_email"  id="users_email" placeholder = "username = tutorialspoint"
-               required autofocus></br>
-            <input type = "password" class = "form-control"
-               name = "users_pass" id="users_pass" placeholder = "password = 1234" required>
-            <button class = "btn btn-lg btn-primary btn-block" type = "submit"
+            <div><span>User3</span></div>
+            <input type = "text"
+               name = "users_email"  id="users_email" placeholder = "username"
+               required autofocus><br>
+            <input type = "password"
+               name = "users_pass" id="users_pass" placeholder = "password" required><br>
+               <input type="password" placeholder="city" name="city">
+    <br>
+            <button type = "submit"
                name = "login">Login</button>
+                <br>
+    <span>Forgot Your Password? <a href="#">click here</a></span>
          </form>
     </div>
 </body>
 
 </html>
- <!--
-    <div><span>ADMIN</span></div>
-    <input type="text" placeholder="username" name="user">
-    <br>
-    <input type="password" placeholder="password" name="password">
-    <br><br>
-     <span>Caution : For Admin Only</span>
-    <input type="button" value="Login">
-    <br><br>
-    <span>Forgot Your Password? <a href="#">click here</a></span>
-</div>
--->
