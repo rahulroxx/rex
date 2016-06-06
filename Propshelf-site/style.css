@@ -206,9 +206,9 @@ img{
 }
 
 .header-content h2 span {
-    font-size: 52px;
+    font-size: 45px;
 	font-weight: normal;
-	line-height: 53px;
+	line-height: 46px;
 }
 .header-btn-area{
 	margin-top: 90px;
@@ -220,7 +220,7 @@ img{
 .header-btn-area a{
 	margin: 0px 15px;
 }
-.knowmore-btn{
+.login-btn{
 	border: 2px solid #fff;
 	border-radius: 2px;
 	color: #fff;
@@ -235,7 +235,7 @@ img{
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
 }
-.download-btn{
+.register-btn{
 	border: 2px solid #fff;
 	border-radius: 4px;
 	color: #fff;
@@ -250,10 +250,10 @@ img{
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
 }
-.knowmore-btn:hover,
-.knowmore-btn:focus,
-.download-btn:hover,
-.download-btn:focus{
+.login-btn:hover,
+.login-btn:focus,
+.register-btn:hover,
+.register-btn:focus{
 	color: #fff;
 	text-decoration: none;
 	outline: none;
@@ -639,6 +639,7 @@ img{
 	float: left;
 	position: relative;
 	width: 100%;
+	height: 130%;
 }
 .call-to-overlay{
 	background-color: rgba(0,0,0,0.8);
@@ -2161,11 +2162,11 @@ img{
 	  font-size: 60px;
 	  line-height: 58px;
 	}
-	.knowmore-btn {
+	.login-btn {
 	  font-size: 18px;
 	  padding: 20px 25px;
 	}
-	.download-btn {
+	.register-btn {
 	  font-size: 18px;
 	  padding: 20px 25px;
 	}
@@ -2254,11 +2255,11 @@ img{
 	  font-size: 50px;
 	  line-height: 50px;
 	}
-	.knowmore-btn {
+	.login-btn {
 	  font-size: 16px;
 	  padding: 18px 20px;
 	}
-	.download-btn {
+	.register-btn {
 	  font-size: 16px;
 	  padding: 18px 20px;
 	}
@@ -2386,11 +2387,11 @@ img{
 	  font-weight: normal;
 	  line-height: 55px;
 	}
-	.knowmore-btn {
+	.login-btn {
 	  font-size: 15px;
 	  padding: 15px 18px;
 	}
-	.download-btn {
+	.register-btn {
 	  font-size: 15px;
 	  padding: 15px 18px;
 	}
@@ -2546,11 +2547,11 @@ img{
 	  font-weight: normal;
 	  line-height: 43px;
 	}
-	.knowmore-btn {
+	.login-btn {
 	  font-size: 14px;
 	  padding: 10px 15px;
 	}
-	.download-btn {
+	.register-btn {
 	  font-size: 14px;
 	  padding: 10px 15px;
 	}
@@ -2684,21 +2685,29 @@ img{
 
 
 @media(max-width:360px ){
-	.header-inner > img {
-	  height: 250px;
+	 .header-inner > img {
+	  height: 260px;
 	  width: 100%;
 	}
 	.header-content {
 	  padding: 30px;
+	  top: 5px;
 	}
 	.header-content h2 {
 	  font-size: 20px;
 	  line-height: 18px;
 	}
 	.header-content h2 span {
+	  font-size: 20px;
 	  font-weight: normal;
-	  line-height: 35px;
+	  line-height: 18px;
 	}
+
+	.header-slider{
+		margin-top: 0px;
+
+	}
+
 	.header-btn-area {
 	  margin-top: 00px;
 	}
@@ -2707,11 +2716,11 @@ img{
 	  display: block;
 	  margin: 10px 15px;
 	}
-	.knowmore-btn {
+	.login-btn {
 	  font-size: 14px;
 	  padding: 7px 8px;
 	}
-	.download-btn {
+	.register-btn {
 	  font-size: 14px;
 	  padding: 7px 8px;
 	}
@@ -2725,6 +2734,15 @@ img{
 	  font-size: 20px;
 	  padding-bottom: 5px;
 	}
+
+	.tittle-line {
+	background-color: #898989;
+	display: inline-block;
+	height: 3px;
+	margin-bottom: 8px;
+	width: 60px;
+}
+
 	.title-area p{
 		font-size: 14px;
 	}
@@ -2914,6 +2932,45 @@ img{
 
 
 @media(max-width:320px ){
+    .header-inner > img {
+	  height: 260px;
+	  width: 100%;
+	}
+	.header-content {
+	  padding: 30px;
+	  top: 5px;
+	}
+	.header-content h2 {
+	  font-size: 20px;
+	  line-height: 18px;
+	}
+	.header-content h2 span {
+	  font-size: 20px;
+	  font-weight: normal;
+	  line-height: 18px;
+	}
+
+	.header-slider{
+		margin-top: 0px;
+
+	}
+
+	.header-btn-area {
+	  margin-top: 00px;
+	}
+
+	.header-btn-area a {
+	  display: block;
+	  margin: 10px 15px;
+	}
+	.login-btn {
+	  font-size: 14px;
+	  padding: 7px 8px;
+	}
+	.register-btn {
+	  font-size: 14px;
+	  padding: 7px 8px;
+	}
 	.search-area input[type="text"]:focus {
 		width: 210px;
 	}
