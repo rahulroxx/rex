@@ -6,10 +6,10 @@
 .header-content h2 span {
   color: #ee4532;
 }
-.knowmore-btn:hover,
-.knowmore-btn:focus,
-.download-btn:hover,
-.download-btn:focus{
+.login-btn:hover,
+.login-btn:focus,
+.register-btn:hover,
+.register-btn:focus{
   background-color: #ee4532;
   border-color: #ee4532;
 }
