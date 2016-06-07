@@ -2080,6 +2080,13 @@ img{
   	padding: 12px 40px;
 }
 
+/*google map iframe border style*/
+.one {
+    border-style: solid;
+    border-width: thick;
+    border-color: gray;
+}
+
 /*--------------------*/
 /* ERROR PAGE */
 /*--------------------*/
