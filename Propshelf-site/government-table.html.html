@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Fade and Blur on Hover Data Table - CodePen</title>
+
+  <style>
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+</style>
+
+    <style>
+body {
+	background: #fafafa url(http://jackrugile.com/images/misc/noise-diagonal.png);
+	color: #444;
+	font: 100%/30px 'Helvetica Neue', helvetica, arial, sans-serif;
+	text-shadow: 0 1px 0 #fff;
+}
+
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+table {
+	background: #f5f5f5;
+	border-collapse: separate;
+	box-shadow: inset 0 1px 0 #fff;
+	font-size: 12px;
+	line-height: 24px;
+	margin: 30px auto;
+	text-align: left;
+	width: 800px;
+}
+
+th {
+	background: url(http://jackrugile.com/images/misc/noise-diagonal.png), linear-gradient(#777, #444);
+	border-left: 1px solid #555;
+	border-right: 1px solid #777;
+	border-top: 1px solid #555;
+	border-bottom: 1px solid #333;
+	box-shadow: inset 0 1px 0 #999;
+	color: #fff;
+  font-weight: bold;
+	padding: 10px 15px;
+	position: relative;
+	text-shadow: 0 1px 0 #000;
+}
+
+th:after {
+	background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,.08));
+	content: '';
+	display: block;
+	height: 25%;
+	left: 0;
+	margin: 1px 0 0 0;
+	position: absolute;
+	top: 25%;
+	width: 100%;
+}
+
+th:first-child {
+	border-left: 1px solid #777;
+	box-shadow: inset 1px 1px 0 #999;
+}
+
+th:last-child {
+	box-shadow: inset -1px 1px 0 #999;
+}
+
+td {
+	border-right: 1px solid #fff;
+	border-left: 1px solid #e8e8e8;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #e8e8e8;
+	padding: 10px 15px;
+	position: relative;
+	transition: all 300ms;
+}
+
+.blur-text
+{
+	color: transparent;
+	text-shadow: 0 0 5px #000;
+}
+
+td:first-child {
+	box-shadow: inset 1px 0 0 #fff;
+}
+
+td:last-child {
+	border-right: 1px solid #e8e8e8;
+	box-shadow: inset -1px 0 0 #fff;
+}
+
+tr {
+	background: url(http://jackrugile.com/images/misc/noise-diagonal.png);
+}
+
+tr:nth-child(odd) td {
+	background: #f1f1f1 url(http://jackrugile.com/images/misc/noise-diagonal.png);
+}
+
+tr:last-of-type td {
+	box-shadow: inset 0 -1px 0 #fff;
+}
+
+tr:last-of-type td:first-child {
+	box-shadow: inset 1px -1px 0 #fff;
+}
+
+tr:last-of-type td:last-child {
+	box-shadow: inset -1px -1px 0 #fff;
+}
+
+/*
+tbody:hover td {
+	color: transparent;
+	text-shadow: 0 0 3px #aaa;
+}
+
+tbody:hover tr:hover td {
+	color: #444;
+	text-shadow: 0 1px 0 #fff;
+}
+*/
+</style>
+
+    <script src="js/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+
+  <table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>year</th>
+      <th>district</th>
+      <th>village</th>
+      <th>cts_no</th>
+      <th>doc_no</th>
+      <th>doc_name</th>
+      <th>registration_date</th>
+      <th>sro_name</th>
+      <th>seller_name</th>
+      <th>perchaser_name</th>
+      <th>property_desc</th>
+      <th>sro_code</th>
+      <th>status</th>
+      <th>returns</th>
+      <th>market_rate</th>
+      <th>area</th>
+      <th>doc_creation_date</th>
+      <th>doc_registration_date</th>
+      <th>sr_no_sec_page</th>
+      <th>stamp_duty_market_rate</th>
+      <th>reg_fee_market_rate</th>
+    </tr>
+  </thead>
+
+
+
+
+
+
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+     <td>1</td>
+      <td>50</td>
+      <td>Transfer Deed</td>
+      <td>2/1/2015
+</td>
+      <td>Joint S.R. Mumbai 1</td>
+      <td class="blur-text">Gitanjali Glacier., Saranarani Glacier. Rahul D Cunha, Nisha D Cunha, Sylvester D Cunha
+</td>
+       <td class="blur-text">Rahul D Cunha, Nisha D Cunha, Sylvester D Cunha
+</td>
+       <td>Apartment No.: Apartment No. C-2, No. attic: the second floor, the building;s name: Connaught Mention, Block No.: Colaba Post Office in front of the South Wing, Road No: Colaba, Mumbai 400 005, and other information: Other Information: CS No. 28 1 / 28 2/28 3/28 undivided share of 6.25 per cent in 2369 square meters of land area, including the Department of Colaba
+</td>
+      <td>318</td>
+      <td>4</td>
+      <td>121000000
+</td>
+      <td>96857000
+</td>
+      <td>183.30 Sq. Feet
+</td>
+      <td>31/12/2014
+</td>
+      <td>2/1/2015
+</td>
+      <td>50/2015
+</td>
+      <td>6050000
+
+</td>
+      <td>3000</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+      <td>1</td>
+      <td>13262</td>
+      <td>Transfer Deed</td>
+      <td>22/12/2015
+</td>
+      <td>Joint S.R. Mumbai 1</td>
+      <td class="blur-text">James press Pvt Ltd ;s Director Sudha iguana, oak by Rohan kulamukhtiyara mhanuna jhubina tatana
+</td>
+       <td class="blur-text">Rohan oak by kulamukhtiyara mhanuna jhubina tatana</td>
+      <td>Apartment No: 93 (903), the attic NO: 9, the name of the building: the harp Tower, Block No.: Colaba, Road, Colaba, Mumbai -400005 postha office, other information: description mentioned dasttata Other</td>
+
+
+
+
+      <td>318</td>
+      <td>4</td>
+      <td>25000000
+</td>
+      <td>19960000
+</td>
+      <td>53.09 Sq. Meter
+</td>
+      <td>22/12/2015
+</td>
+      <td>22/12/2015
+</td>
+      <td>13262/2015
+</td>
+      <td>1250000
+</td>
+      <td>3000</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+      <td>624</td>
+      <td>10840</td>
+      <td>36-A-Leave and Licenses</td>
+      <td>24/9/2015
+</td>
+     <td>Joint S.R. Mumbai 1</td>
+      <td class="blur-text">Metro phinvesta (Bombay) private. Limiteda. By Aarti Manoj great personalities - -
+</td>
+       <td class="blur-text">General of the People;s Republic of China hosted the konasyuleta Mumbai by vovena by Fu - -</td>
+      <td>Other information: flat no. 144, Meher apartmenta Naz, 91 Cuffe Parade, Colaba, Mumbai - 400005 and / stilta parking garage no. 50</td>
+
+
+
+      <td>318</td>
+      <td>4</td>
+      <td>96000</td>	<td>96000</td>	<td>960 Sq. Feet</td>	<td>24/9/2015</td>	<td>24/9/2015</td>	<td>10840/2015</td>	<td>18000</td>
+
+
+      <td>1000</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+      <td>63</td>
+      <td>9004</td>
+      <td>36-A-Leave and Licenses</td>
+      <td>5/8/2015
+</td>
+      <td>Joint S.R. Mumbai 1</td>
+        <td class="blur-text">The introduction of Shashikant C?</td>
+
+
+
+      <td class="blur-text">Aniruddha Singh</td>
+      <td>Apartment No. 3, No. Floor: 1, Building Name: A Sea Lord Apartments Wing, Block No.: 117 pareda cough, Road No: Colaba Mumbai 400005</td>
+
+      <td>318</td>
+      <td>4</td>
+      <td>70000</td>	<td>200000	<td>841 Sq. Feet</td>	<td>5/8/2015</td>	<td>5/8/2015</td>	<td>9004/2015</td>	<td>4500</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+     <td>63</td>
+      <td>3176</td>
+      <td>36-A-Leave and Licenses</td>
+      <td>16/3/2015
+</td>
+      <td>Joint S.R. Mumbai 1</td>
+      <td class="blur-text">Renuka. Jaitley</td>
+
+
+
+
+      <td class="blur-text">Lee Scott income cap securities by Sandeep issara</td>
+
+      <td>Apartment No: 10 D, attic No.: 10 th Floor, Building Name: Harbor Heights, Block No: M BS Road, Road No: Cadbury Colaba 400005</td>
+      <td>318</td>
+      <td>4</td>
+      <td>82500</td>	<td>750000</td>	<td>NA</td>	<td>16/3/2015</td>	<td>16/3/2015</td>	<td>3176/2015</td> <td>9000</td>
+
+      <td>1000</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+      <td>63</td>
+      <td>6382</td>
+      <td>36-A-Leave and Licenses</td>
+      <td>28/5/2015
+</td>
+      <td>Joint S.R. Mumbai 1</td>
+      <td class="blur-text">Seth taramati gunavantaraya</td>
+
+
+
+<td class="blur-text">Rajesh Mehta rasikalala</td>
+
+      <td>Apartment No. 23, No. Floor: 2, Building Name: Sunflowers Building, Block No.: Ravi Kiran So Cuffe Parade, Road: Cadbury Colaba 400005</td>
+      <td>318</td>
+      <td>4</td>
+      <td>80000	<td>320000</td>	<td>NA</td>	<td>28/5/2015</td>	<td>28/5/2015</td>	<td>6382/2015</td>	<td>5000</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+      <td>1</td>
+      <td>1290</td>
+      <td>36-A-Leave and Licenses</td>
+      <td>16/3/2015
+</td>
+      <td>Joint S.R. Mumbai 1</td>
+      <td class="blur-text">Farida Murtaza Murtaza Abbas sahapuravala sahapuravala themselves and by Ms. Mu</td>
+
+
+
+<td class="blur-text">Rajendra. Tiwari</td>
+
+      <td>Apartment No. 21, No. Floor: 3rd Floor, Building Name: Honors Court Building, Block No.:., Road No: Arthur Bunder Road, Colaba Mumbai 400005, other information: Duration 11 months, the monthly rent of Rs .66,000 / - deposit of Rs .1,00,000 / -</td>
+      <td>318</td>
+      <td>4</td>
+      <td>66000</td>	<td>100000</td>	<td>NA</td>	<td>31/1/2015</td>	<td>31/1/2015</td>	<td>1290/2015</td>	<td>1900
+</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+      <td>64</td>
+      <td>1987</td>
+      <td>36-A-Leave and Licenses</td>
+      <td>16/3/2015
+</td>
+      <td>Joint S.R. Mumbai 1</td>
+      <td class="blur-text">NA</td>
+
+
+
+<td class="blur-text">NA</td>
+
+      <td>Apartment No. 4 A, Block No.: nofara Market, Road No: Colaba</td>
+      <td>318</td>
+      <td>4</td>
+       <td>1997</td>	<td>4500</td>	<td>?210 Sq. Feet</td>	<td>12/2/2015	<td>16/2/2015</td>	<td>1987/2015</td>	<td>300</td>
+
+      <td>1000</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+      <td>64</td>
+      <td>1986</td>
+      <td>36-A-Leave and Licenses</td>
+      <td>16/2/2015
+</td>
+      <td>Joint S.R. Mumbai 1</td>
+      <td class="blur-text">NA</td>
+
+
+
+<td class="blur-text">Jagdish S. Shetty</td>
+
+      <td>Apartment No. 14, Block No.: nofara Market, Road No: Colaba</td>
+      <td>318</td>
+      <td>4</td>
+      <td>19965</td>	<td>45000</td>	<td>?210 Sq. Feet</td>	<td>12/2/2015</td>	<td>16/2/2015</td>	<td>1986/2015</td>	<td>800</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+      <td>64</td>
+      <td>1988</td>
+      <td>36-A-Leave and Licenses</td>
+      <td>16/2/2015
+</td>
+      <td>Joint S.R. Mumbai 1</td>
+       <td class="blur-text">NA</td>
+
+
+
+<td class="blur-text">NA</td>
+
+      <td>Apartment No. 26, No. attic: GROUND Floor, Building Name: The upper bildinga, Block No.: nofara Market, Road No: Colaba</td>
+      <td>318</td>
+      <td>4</td>
+      <td>3630</td>	<td>9000</td>	<td>?130 Sq. Feet</td>	<td>12/2/2015</td>	<td>16/2/2015</td>	<td>1988/2015</td>	<td>300</td>
+
+      <td>1000</td>
+    </tr>
+     <tr>
+      <td>11</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+      <td>64</td>
+      <td>2450</td>
+      <td>36-A-Leave and Licenses</td>
+      <td>26/2/2015
+</td>
+      <td>Joint S.R. Mumbai 1</td>
+      <td class="blur-text">Homi turn hanoja</td>
+
+
+
+ <td class="blur-text">A B C May;s enterprise propre. Mohammad Aslam</td>
+
+      <td>Apartment No: 28 A SHOP, attic No.: Ground Floor, Building Name: maker Arcade, Block No.: Cuffe Parade, Road: Cadbury Colaba 400005</td>
+      <td>318</td>
+      <td>4</td>
+      <td>26500</td>	<td>100000</td>	<td>NA</td>	<td>26/2/2015</td>	<td>26/2/2015	<td>2450/2015</td>	<td>1700</td>
+      <td>1000</td>
+    </tr>
+     <tr>
+      <td>12</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+      <td>1</td>
+      <td>9349</td>
+      <td>Sale Deed</td>
+      <td>13/8/2015
+</td>
+      <td>Joint S.R. Mumbai 1</td>
+      <td class="blur-text">Colonel Singh guriqbala dhodi. ., Rahul Bhandari. .</td>
+
+
+
+<td class="blur-text">>Rahul Bhandari. .</td>
+
+      <td>Other information: Flat No. 3C, third floor, Oyster apartments, with 1 covered car parking space No. 3C, the pilot port koohausoli, Sadashiv port, harbor pilots, Colaba, Mumbai 400005</td>
+      <td>318</td>
+      <td>4</td>
+      <td>70000000</td>	<td>65833000</td>	<td>1355 Sq. Feet</td>	<td>13/8/2015</td>	<td>13/8/2015</td>	<td>9349/2015</td>	<td>3500000</td>
+
+      <td>3000</td>
+    </tr>
+     <tr>
+      <td>13</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+     <td>64</td>
+      <td>4334</td>
+      <td>36-A-Leave and Licenses</td>
+      <td>13/4/2015
+</td>
+     <td>Joint S.R. Mumbai 1</td>
+      <td class="blur-text">Milan Mehra - -, Deepali Mehra - -</td>
+
+
+
+<td class="blur-text">Varun Gupta inspiration - - Varun Gupta - -</td>
+
+      <td>Apartment No: 156, Floor No: 15, Building Name: The maker Tower, Block No.: cough pareda, Road No: Colaba Mumbai 400005</td>
+      <td>318</td>
+      <td>4</td>
+      <td>110000</td>	<td>500000</td>	<td>625 Sq. Feet</td>	<td>13/4/2015</td>	<td>13/4/2015</td>	<td>4334/2015</td>	<td>3500</td>
+
+      <td>1000</td>
+    </tr>
+     <tr>
+      <td>14</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+      <td>64</td>
+      <td>6544</td>
+      <td>36-A-Leave and Licenses</td>
+      <td>2/6/2015
+</td>
+      <td>Joint S.R. Mumbai 1</td>
+      <td class="blur-text">NA</td>
+
+
+
+<td class="blur-text">NA</td>
+
+      <td>Apartment No.: Stahl No. 5, Block No.: nofara Market, Road No: Colaba</td>
+      <td>318</td>
+      <td>4</td>
+      <td>781</td>	<td>2130</td>	<td>100 Sq. Feet</td>	<td>30/5/2015</td>	<td>2/6/2015</td>	<td>6544/2015	<td>300</td>
+
+      <td>1000</td>
+    </tr>
+     <tr>
+      <td>15</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+      <td>64</td>
+      <td>6805</td>
+      <td>36-A-Leave and Licenses</td>
+      <td>9/6/2015
+</td>
+      <td>Joint S.R. Mumbai 1</td>
+      <td class="blur-text">Ashutosh A. Maheshwari - -</td>
+
+<td class="blur-text">- - L R Prajapati</td>
+
+      <td>Apartment No: 04, Building Name: nofara Market, Road No: Colaba</td>
+      <td>318</td>
+      <td>4</td>
+     <td>4414</td>	<td>4500</td>	<td>64 Sq. Feet</td>	<td>6/6/2015</td>	<td>9/6/2015</td>	<td>6805/2015	<td>660</td>
+      <td>1000</td>
+    </tr>
+     <tr>
+      <td>16</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+      <td>64</td>
+      <td>2437</td>
+      <td>Gift Card</td>
+      <td>16/3/2015
+</td>
+
+      <td>Joint S.R. Mumbai 1</td>
+       <td class="blur-text">NA</td>
+
+ <td class="blur-text">A Suman. Maheshwari - -</td>
+
+      <td>Other information: flat no. 21 B, 2nd Floor, Tower maker &#39;mother&#39; Co-operative Housing Society Limited, Cuffe Parade, Colaba, Mumbai - 400 005</td>
+      <td>318</td>
+      <td>4</td>
+      <td>0</td>	<td>16126500</td>	<td>480 Sq. Feet</td>	<td>16/3/2015</td>	<td>16/3/2015</td>	<td>2437/2015</td>	<td>323000</td>
+
+      <td>3000</td>
+    </tr>
+     <tr>
+      <td>17</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+      <td>1</td>
+      <td>1468</td>
+      <td>36-A-Leave and Licenses</td>
+      <td>4/2/2015
+</td>
+      <td>Joint S.R. Mumbai 1</td>
+         <td class="blur-text">Homi turn hanoja</td>
+
+
+<td class="blur-text">Ramesh tenurama ladle</td>
+
+      <td>No. flats: flat no. 12 A, the name of the building: Modern flats, Road No: Colaba, Mumbai - 400 005, and other information: Duration - 36 months / deposit - Rs. 3,00,000 / - / monthly rent - Rs. 75,000 / -</td>
+      <td>318</td>
+      <td>4</td>
+      <td>75000</td>	<td>300000</td>	<td>NA</td>	<td>4/2/2015</td>	<td>4/2/2015</td>	<td>1468/2015</td>	<td>7000</td>
+
+      <td>1000</td>
+    </tr>
+     <tr>
+      <td>18</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+      <td>641</td>
+      <td>2450</td>
+      <td>36-A-Leave and Licenses</td>
+      <td>26/2/2015
+</td>
+      <td>Joint S.R. Mumbai 1</td>
+      <td class="blur-text">Shyam jivatarama samadasani by Ms. issue new samadasani</td>
+
+<td class="blur-text">A B C May;s enterprise propre. Mohammad Aslam</td>
+
+      <td>Apartment No: 28 A SHOP, attic No.: Ground Floor, Building Name: maker Arcade, Block No.: Cuffe Parade, Road: Cadbury Colaba 400005</td>
+      <td>318</td>
+      <td>4</td>
+      <td>26500</td>	<td>100000</td>	<td>NA</td>	<td>26/2/2015</td>	<td>26/2/2015</td>	<td>2450/2015</td>	<td>1700</td>
+
+      <td>1000</td>
+    </tr>
+     <tr>
+      <td>19</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+     <td>641</td>
+      <td>4334</td>
+      <td>36-A-Leave and Licenses</td>
+      <td>13/4/2015
+</td>
+      <td>Joint S.R. Mumbai 1</td>
+      <td class="blur-text">Milan Mehra - -, Deepali Mehra - -</td>
+
+<td class="blur-text">Varun Gupta inspiration - - Varun Gupta - -</td>
+
+      <td>Apartment No: 156, Floor No: 15, Building Name: The maker Tower, Block No.: cough pareda, Road No: Colaba Mumbai 400005</td>
+      <td>318</td>
+      <td>4</td>
+      <td>110000</td>	<td>500000</td>	<td>625 Sq. Feet</td>	<td>13/4/2015	<td>13/4/2015</td>	<td>4334/2015</td>	<td>3500</td>
+
+      <td>1000</td>
+    </tr>
+     <tr>
+      <td>20</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+      <td>1</td>
+      <td>1480</td>
+      <td>36-A-Leave and Licenses</td>
+      <td>4/2/2015
+</td>
+      <td>Joint S.R. Mumbai 1</td>
+     <td class="blur-text">NA</td>
+
+<td class="blur-text">Dhananjay Raval sanjiva</td>
+      <td>Block No.: Near the hotel phari, the Road No: Minu Desai way Colaba Mumbai 400005, other information: Duration Rs deposit 36 \u200b\u200bmonths. 150,000 / - monthly rent of Rs .58,000 / - Rs .58,000 / - and Rs .61,500 / -</td>
+      <td>318</td>
+      <td>4</td>
+      <td>59500</td>	<td>150000</td>	<td>582 Sq. Feet</td>	<td>4/2/2015</td>	<td>4/2/2015</td>	<td>1480/2015</td>	<td>5500</td>
+      <td>1000</td>
+    </tr>
+     <tr>
+      <td>21</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+      <td>643</td>
+      <td>6805</td>
+      <td>36-A-Leave and Licenses</td>
+      <td>9/6/2015
+</td>
+     <td>Joint S.R. Mumbai 1</td>
+      <td class="blur-text">Ashish G force, abundant value plus Agro Foods Pvt Ltd by Payal Agarwal Director</td>
+
+<td class="blur-text">L R Prajapati</td>
+
+      <td>Apartment No. 24, Floor No: 6th Floor, Building Name: lavadela apartments op Haw so Ltd,
+      <td>318</td>
+      <td>4</td>
+      <td>4414</td>	<td>4500</td>	<td>64 Sq. Feet</td>	<td>6/6/2015</td>	<td>9/6/2015</td>	<td>6805/2015</td>	<td>600</td>
+      <td>1000</td>
+    </tr>
+     <tr>
+      <td>22</td>
+      <td >2015</td>
+      <td>Mumbai_City</td>
+      <td>Culaba</td>
+      <td>65</td>
+      <td>75</td>
+      <td>Sale Deed</td>
+      <td>9/6/2015
+</td>
+      <td>Joint S.R. Mumbai 1</td>
+      <td class="blur-text">Ashish G force, abundant value plus Agro Foods Pvt Ltd by Payal Agarwal Director</td>
+
+      <td class="blur-text">Value Plus Agro Foods Pvt Ltd Director by Payal Agarwal abound</td>
+      <td>Apartment No: 04, Building Name: nofara Market, Road No: Colaba</td>
+      <td>318</td>
+      <td>4</td>
+      <td>11900000</td>	<td>11864500</td>	<td>41.26 Sq. Meter</td>	<td>30/12/2014</td>	<td>3/1/2015</td>	<td>75/2015</td>	<td>595000</td>
+      <td>3000</td>
+    </tr>
+  </tbody>
+    </table>
+
+
+
+  <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>
