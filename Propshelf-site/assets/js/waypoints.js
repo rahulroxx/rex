@@ -1,9 +1,4 @@
-/*
-jQuery Waypoints - v2.0.3
-Copyright (c) 2011-2013 Caleb Troughton
-Dual licensed under the MIT license and GPL license.
-https://github.com/imakewebthings/jquery-waypoints/blob/master/licenses.txt
-*/
+
 (function() {
     var t = [].indexOf || function(t) {
         for (var e = 0, n = this.length; n > e; e++) if (e in this && this[e] === t) return e;
